@@ -3,11 +3,10 @@ const express = require('express');
 const dbConnect = require("./config/db.js");
 const routerTodo = require("./router/router.js")
 const app = express();
-const PORT = 3003;
 const cors = require("cors");
 require('dotenv').config();
 //cors config
-app.use(cors);
+app.use(cors());
 
 app.use(express.json());
 
@@ -16,10 +15,7 @@ app.use(routerTodo);
 
 //conectamos a la base de datos
 dbConnect().then(() =>{
-    app.listen(PORT, () => {
-        console.log(`El servidor esta corriendo en el localhost:${PORT}`);
-    });
-
+        console.log('El servidor esta corriendo');
 }).catch(err => {
     console.error('No se ha podido iniciar la conexion a la base de datos.')});
 
