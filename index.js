@@ -5,10 +5,9 @@ const routerTodo = require("./router/router.js")
 const app = express();
 const PORT = 3003;
 const cors = require("cors");
-const corsOptions = require('./config/corsOption.js');
 require('dotenv').config();
 //cors config
-app.use(cors(corsOptions));
+app.use(cors);
 
 app.use(express.json());
 
